@@ -1,0 +1,71 @@
+/* Reset some basic styles */
+body, h1, h2, p, ul {
+   background-color: #857F74;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 20px;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 1.6;
+}
+
+/*to center the website */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    background-color: #A4AC96;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+header {
+
+    font-family: "Anton", sans-serif;
+    background: #857F74;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    letter-spacing: 3px;
+    
+}
+
+.p1 {
+    font-family: "Inconsolata", monospace, bold; /* Font type */
+    font-weight: 600;
+    font-size: 23px; /* Font size */
+    color: #444; /* Text color */
+    line-height: 1.6; /* Line height */
+    text-align: center; /* Text alignment */
+    margin: 20px 0; /* Margin around the paragraph */
+    padding: 10px; /* Padding inside the paragraph */
+    border-bottom: 3px solid #CADF9E; /* Left border */
+    background-color: #A4AC96; /* Background color */
+  }
+
+  .p2 {
+    font-family: "Inconsolata", monospace; /* Font type */
+    font-size: 16px; /* Font size */
+    color: #444; /* Text color */
+    line-height: 1.8; /* Line height */
+    text-align: center; /* Text alignment */
+    margin: 20px auto; /* Margin around the paragraph, centered */
+    padding: 15px; /* Padding inside the paragraph */
+    background-color: #A4AC96; /* Background color */
+  }
+ 
+
+footer {
+    font-family: "Inconsolata", monospace; 
+    background: #313628;
+    color: #fff;
+    padding: 5px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    text-align: center
+   
+}
