@@ -1,13 +1,17 @@
+// Movie data array: Allows for easy management and updating of movie information
+// This makes it easy to manage and update movie information.
+
+// Each object represents a movie with its details
 const movies = [
     {
-        id: 1,
+        id: 1, // Unique identifier for each movie
         title: "The Shawshank Redemption",
         genre: "Drama",
         rating: 9.3,
         description: "A banker convicted of uxoricide forms a friendship over a quarter century with a hardened convict, while maintaining his innocence and trying to remain hopeful through simple compassion.",
         director: "Frank Darabont",
         year: "1994",
-        thumbnail: "Media/Shawshank.jpg"
+        thumbnail: "Media/Shawshank.jpg" // Path to the movie poster image
     },
     {
         id: 2,
@@ -81,12 +85,12 @@ const movies = [
     },
 ];
 
-// DOM Elements
-const movieGrid = document.getElementById('movieGrid');
-const modal = document.getElementById('movieModal');
-const closeButton = modal.querySelector('.close-button');
+// Get references to important parts of our HTML
+const movieGrid = document.getElementById('movieGrid'); // Where movie cards will go
+const modal = document.getElementById('movieModal'); // Modal window for details
+const closeButton = modal.querySelector('.close-button'); // Button to close modal
 
-// Create movie cards
+// Create movie cards and put them onto the page
 function createMovieCards() {
     movieGrid.innerHTML = movies.map(movie => `
         <div class="movie-card" data-id="${movie.id}">
@@ -103,11 +107,11 @@ function createMovieCards() {
     `).join('');
 }
 
-// Show movie details in modal
+// Function to show detailed information in a modal when a movie is clicked
 function showMovieDetails(movie) {
-    modal.classList.add('active');
+    modal.classList.add('active'); // Show modal
     
-    // Update modal content
+   // Update modal content with selected movie details
     modal.querySelector('.modal-image').src = movie.thumbnail;
     modal.querySelector('.modal-image').alt = movie.title;
     modal.querySelector('.modal-title').textContent = movie.title;
@@ -118,25 +122,28 @@ function showMovieDetails(movie) {
     modal.querySelector('.modal-rating').textContent = `${movie.rating}/10`;
 }
 
-// Event Listeners
-movieGrid.addEventListener('click', (e) => {
-    const movieCard = e.target.closest('.movie-card');
-    if (movieCard) {
-        const movie = movies.find(m => m.id === parseInt(movieCard.dataset.id));
-        showMovieDetails(movie);
+// Event listener for clicks on the movie grid
+movieGrid.addEventListener('click', (e) => { 
+    const movieCard = e.target.closest('.movie-card'); // Get closest card clicked
+    if (movieCard) { // If a card was clicked
+        const movie = movies.find(m => m.id === parseInt(movieCard.dataset.id)); // Find the correct movie by ID
+        showMovieDetails(movie); // Show its details in the modal
     }
 });
 
+// Close button functionality to hide the modal
 closeButton.addEventListener('click', () => {
-    modal.classList.remove('active');
+    modal.classList.remove('active'); // Hide modal when close button is clicked
 });
 
+// Close modal when clicking outside of its content area
+// Improves user experience by providing an intuitive way to exit the modal without needing to locate the smaller exit button. 
 modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        modal.classList.remove('active');
+    if (e.target === modal) { // If clicked on the dark area outside content
+        modal.classList.remove('active'); // Hide it
     }
 });
 
-// Initialize
+// Initialize by creating all movie cards when page loads
 createMovieCards();
 

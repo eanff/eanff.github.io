@@ -1,182 +1,191 @@
+/* Using color variables to make it easy to change our color scheme later */
 :root {
-    --background-dark: #050608;
-    --card-dark: #16181f;
-    --text-primary: #FFFFFF;
-    --text-secondary: #9CA3AF;
-    --overlay-dark: rgba(0, 0, 0, 0.75);
+    --background-dark: #050608; /* Dark background for a cinematic, movie theater feel. Meant to make you feel as though you are in a dark cinema */
+    --card-dark: #16181f; /* Lighter card color for slight contrast */
+    --text-primary: #FFFFFF; /* White text for readability */
+    --text-secondary: #9CA3AF; /* Darker text for secondary info */
+    --overlay-dark: rgba(0, 0, 0, 0.75); /* Overlay to slightly darken and make the background transparent for when a card is in full view. Currently at 75% opacity. */
 }
 
+/* Basic reset to make sure everything looks consistent across browsers */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Body with a dark theme and some padding */
 body {
-    background-color: var(--background-dark);
-    color: var(--text-primary);
-    font-family: Arial, sans-serif;
-    min-height: 100vh;
-    padding: 32px;
+    background-color: var(--background-dark);  /* Dark background like a movie theater */
+    color: var(--text-primary); /* Set text color */
+    font-family: Arial, sans-serif; /* Use a simple font for easy reading */
+    min-height: 100vh; /* Make sure it takes up the full height of the screen */
+    padding: 32px; /* Add space around the content */
 }
 
+/* This keeps our content centered and not too wide on big screens */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 1200px; /* Maximum width of the container */
+    margin: 0 auto; /* Centering horizontally */
 }
 
+/* Title styling to grab attention with a big font size */
 h1 {
-    font-family: 'Anton', sans-serif;
-    font-size: 80px;
-    margin-bottom: 100px;
-    letter-spacing: 8px;
-    color: brown;
-    text-align: center;
+    font-family: 'Anton', sans-serif; /* Bold font for title */
+    font-size: 80px;  /* Large size for visibility */
+    margin-bottom: 100px; /* Space below the title */
+    letter-spacing: 8px;  /* Space between letters for style */
+    color: brown; /* Red title color to represent a 'cinematic' look. Meant to associate with red curtains that open before films. */
+    text-align: center; /* Centering the title */
 }
 
+/* Grid layout for responsive design, adapting to different screen sizes */
 .movie-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 24px;
-    padding: 16px 0;
+    display: grid; /* Use grid layout for flexibility */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive columns that fill space */
+    gap: 24px; /* Space between cards */
+    padding: 16px 0; /* Space above and below the grid */
 }
 
+/* Styling for each movie card with hover effects to make it interactive */
 .movie-card {
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.3s ease;
+    position: relative; /* Allows positioning of overlay inside the card */
+    border-radius: 8px; /* Rounded corners for a softer look */
+    overflow: hidden;   /* Hides anything that sticks out past the rounded corners */
+    cursor: pointer; /* Changes cursor to pointer on hover to indicate it's clickable */
+    transition: transform 0.3s ease; /* Smooth hover effect when card is lifted slightly */
 }
 
+/* Makes the card lift up slightly when you hover over it */
 .movie-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px); /* Move the card up a bit */
 }
 
+/* Ensuring images fit well within their cards */
 .movie-card img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
+    width: 100%; /* Full width of the card to avoid gaps */
+    height: 400px; /* Fixed height for uniformity across all cards */
+    object-fit: cover; /* Makes sure the image covers the area without stretching */
 }
 
+/* Overlay that appears on hover to show more information about the movie */
 .movie-overlay {
-    position: absolute;
-    inset: 0;
-    background: var(--overlay-dark);
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    position: absolute; /* Position overlay over the card content */
+    inset: 0; /* Fills entire card area (top, right, bottom, left)*/
+    background: var(--overlay-dark); /* Darkens the background for better contrast with text in the overlay*/
+    opacity: 0; /* Hidden by default until hovered over*/
+    transition: opacity 0.3s ease; /* Smooth fade-in effect on hover*/
     padding: 16px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    display: flex; /* Use flexbox for laying out the content */
+    flex-direction: column; /* Stack the content vertically */
+    justify-content: flex-end; /* Put the content at the bottom of the overlay */
 }
 
 .movie-card:hover .movie-overlay {
-    opacity: 1;
+    opacity: 1; /* Shows overlay when hovering over the cards*/
 }
 
+/* Title and genre styles inside the overlay for clarity */
 .movie-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 8px;
-    font-family: "Nanum Gothic Coding", monospace;
+    font-size: 24px; /* Large text for the title */
+    font-weight: bold; /* Make it stand out */
+    margin-bottom: 8px; /* Some space below the title */
+    font-family: "Nanum Gothic Coding", monospace;  /* Consistent font */
 }
 
 .movie-genre {
-    color: var(--text-secondary);
-    font-size: 13px;
-    margin-bottom: 8px;
-    font-family: "Nanum Gothic Coding", monospace;
+    color: var(--text-secondary); /* Darker color to distinguish from the title */
+    font-size: 13px; /* Smaller text */
+    margin-bottom: 8px; /* Space below */
+    font-family: "Nanum Gothic Coding", monospace;  /* Consistent font */
 }
 
+/* Rating display with star icon and number next to it*/
 .movie-rating {
-    display: flex;
-    align-items: center;
+    display: flex; /* Put the star and number side by side */
+    align-items: center; /* Center them vertically */
     gap: 4px;
-    font-family: "Nanum Gothic Coding", monospace;
-}
+    font-family: "Nanum Gothic Coding", monospace; /* Consistent font */
+} 
 
+/* Make the star yellow */
 .movie-rating span:first-child {
-    color: #FCD34D;
+    color: #FCD34D; /* Gold color for the star */
 }
 
-/* Modal Styles */
+/* Modal styles to show detailed information about a selected movie when clicked*/
 .modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: var(--overlay-dark);
-    z-index: 1000;
-    padding: 16px;
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place even if the page scrolls */
+    inset: 0; /* Cover the whole screen */
+    background: var(--overlay-dark); /* Dark, semi-transparent background */
+    z-index: 1000; /* Make sure it's on top of everything else */
+    padding: 16px; /* Some space around the edges */
 }
 
+/* Show the modal when it's active */
 .modal.active {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; /* Use flexbox for centering */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
 }
 
+/* Modal content styling for better readability and aesthetics*/
 .modal-content {
-    background: var(--card-dark);
-    border-radius: 8px;
+    background: var(--card-dark); /* Dark background for the content */
+    border-radius: 8px; /* Rounded corners */
     max-width: 800px;
     width: 100%;
-    position: relative;
-    padding: 24px;
-    font-family: "Nanum Gothic Coding", monospace;
+    position: relative; /* For positioning the close button */
+    padding: 24px; /* Space inside the content area */
+    font-family: "Nanum Gothic Coding", monospace;  /* Consistent font */
 }
 
+/* Close button styling to allow users to exit modal easily*/
 .close-button {
-    position: absolute;
-    right: 16px;
-    top: 16px;
-    font-size: 24px;
-    cursor: pointer;
-    color: var(--text-secondary);
+    position: absolute; /* Position it relative to the modal content */
+    right: 16px; /* 16px from the right edge */
+    top: 16px; /* 16px from the top */
+    font-size: 24px; /* Make it big enough to click easily */
+    cursor: pointer; /* Change cursor to a hand when hovering */
+    color: var(--text-secondary);  /* Light grey color */
 }
 
+/* Layout for the modal body (image and info) */
 .modal-body {
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 24px;
 }
 
+/* Style for the movie poster in the modal */
 .modal-image {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 08px;
+    width: 100%; /* Fill the width of its column */
+    height: 400px; /* Set height */
+    object-fit: cover; /* Cover the area without stretching */
+    border-radius: 8px;  /* Rounded corners */
 }
 
+/* Styles for the movie info in the modal */
 .modal-info {
     color: var(--text-primary);
 }
 
 .modal-title {
-    font-size: 32px;
+    font-size: 32px; /* Large text for the title */
     margin-bottom: 16px;
 }
 
 .modal-description {
-    color: var(--text-secondary);
+    color: var(--text-secondary); /* Slighlty darker color for the description */
     margin-bottom: 24px;
 }
 
 .modal-details p {
-    margin-bottom: 8px
+    margin-bottom: 8px /* Space between detail lines */
 }
 
 .modal-details span:first-child {
-    color: var(--text-secondary);
+    color: var(--text-secondary); /* Darker color for detail labels */
     margin-right: 8px;
-}
-
-@media (max-width: 768px) {
-    .modal-body {
-        grid-template-columns: 1fr;
-    }
-
-    .modal-image {
-        height: 300px;
-    }
 }

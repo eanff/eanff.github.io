@@ -3,33 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Grid</title>
+    <title>Film Hover</title>
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 
+    <!--all my media and information used was sourced through "https://www.imdb.com/chart/top/"-->
 </head>
+
+<!-- The main structure of our movie browsing webpage -->
 <body>
+    <!-- Container to keep everything centered and neat -->
     <div class="container">
-        <h1>FILM HOVER</h1>
+        <h1>FILM HOVER</h1>  <!-- Big, eye-catching title for the movie page -->
         
-        <!-- Movie Grid -->
+       <!-- Using a grid layout for the movie cards to create a visually appealing and responsive design -->
         <div class="movie-grid" id="movieGrid">
-            <!-- Movies will be inserted here by JavaScript -->
+             <!-- Movie cards will be added using JavaScript later -->
+            <!-- This makes it easy to update our movie list without changing the HTML -->
         </div>
     </div>
-  
-    <!-- Modal Template -->
+
+      <!-- Pop-up window (modal) for showing more details about a movie when clicked -->
     <div class="modal" id="movieModal">
+         <!-- Modal content structure allows for a clean and organized presentation of movie details -->
         <div class="modal-content">
+              <!-- Button to close the modal -->
             <span class="close-button">&times;</span>
             <div class="modal-body">
+                    <!-- Space for movie image and info -->
                 <img src="" alt="" class="modal-image">
                 <div class="modal-info">
                     <h2 class="modal-title"></h2>
                     <p class="modal-description"></p>
                     <div class="modal-details">
+                          <!-- Showing more details like director, genre, etc. -->
                         <p><span>Director:</span> <span class="modal-director"></span></p>
                         <p><span>Genre:</span> <span class="modal-genre"></span></p>
                         <p><span>Year:</span> <span class="modal-year"></span></p>
