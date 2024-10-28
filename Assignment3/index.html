@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Grid</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+
+</head>
+<body>
+    <div class="container">
+        <h1>FILM HOVER</h1>
+        
+        <!-- Movie Grid -->
+        <div class="movie-grid" id="movieGrid">
+            <!-- Movies will be inserted here by JavaScript -->
+        </div>
+    </div>
+  
+    <!-- Modal Template -->
+    <div class="modal" id="movieModal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div class="modal-body">
+                <img src="" alt="" class="modal-image">
+                <div class="modal-info">
+                    <h2 class="modal-title"></h2>
+                    <p class="modal-description"></p>
+                    <div class="modal-details">
+                        <p><span>Director:</span> <span class="modal-director"></span></p>
+                        <p><span>Genre:</span> <span class="modal-genre"></span></p>
+                        <p><span>Year:</span> <span class="modal-year"></span></p>
+                        <p><span>Rating:</span> <span class="modal-rating"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
